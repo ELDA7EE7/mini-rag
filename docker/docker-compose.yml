@@ -1,0 +1,13 @@
+services:
+  mongodb:
+    image: mongo:7-jammy # imgage name and tag (might change tag)
+    container_name: mongodb
+    ports:
+      - "27007:27017" #when there is : , second number is where the default port is and first is where i want it to be
+    volumes:
+      - ./mongodb:/data/db #the data is stored in /data/db by default and deleted when close docker so first path is where i want it to be
+    networks:
+      - backend
+    restart: always
+networks:
+  backend:
